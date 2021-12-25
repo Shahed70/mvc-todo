@@ -1,38 +1,58 @@
 <?php require 'header.view.php' ?>
 
-<ul>
-        <?php foreach ($todos as $todo) : ?>
-                <li><?php echo $todo->title ?></li>
-        <?php endforeach ?>
-</ul>
-
 <div class="container">
-        <div class="d-flex justify-content-center">
-                <form action="/names" method="POST">
-                        <table>
-                                <tr>
-                                        <td>Title</td>
-                                        <td>
-                                                <div class="input-group">
-                                                        <input name="title" type="text" class="form-control">
-                                                </div>
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td>Status</td>
-                                        <td>
-                                                <div class="input-group">
-                                                        <input name="status" type="number" class="form-control">
-                                                </div>
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td></td>
-                                        <td> <button class="btn btn-primary" type="submit"> Submit </button></td>
-                                </tr>
+        <div class="row">
+                <div class="col-md-6">
+                        <table class="table border">
+                                <thead>
+                                        <tr>
+                                                <th>Todo List</th>
+                                                <th>Status</th>
+                                                
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <?php foreach ($todos as $todo) : ?>
+                                                <tr>
+                                                        <td><?= $todo->title ?></td>
+                                                        <td><?= $todo->completed ? 'Completed' : 'Uncomplete'  ?></td>
+                                                        <td>
+                                                          <!-- <a class="btn btn-primary" href="/edit?id=<?=  $todo->id ?>">Edit</a>
+                                                        </td> -->
+                                                </tr>
+                                        <?php endforeach ?>
+                                </tbody>
                         </table>
+                </div>
+                <div class="col-md-6">
+                        <div class="">
+                                <form action="/addTodo" method="POST">
+                                        <table>
+                                                <tr>
+                                                        <td>Title</td>
+                                                        <td>
+                                                                <div class="input-group">
+                                                                        <input name="title" type="text" required class="form-control">
+                                                                </div>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>Status</td>
+                                                        <td>
+                                                                <div class="input-group">
+                                                                        <input name="status" type="number" required class="form-control">
+                                                                </div>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td></td>
+                                                        <td> <button class="btn btn-primary" type="submit"> Submit </button></td>
+                                                </tr>
+                                        </table>
 
-                </form>
+                                </form>
+                        </div>
+                </div>
         </div>
 </div>
 

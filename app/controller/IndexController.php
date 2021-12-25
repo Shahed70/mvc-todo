@@ -12,10 +12,10 @@ class IndexController
     }
     public static function showView()
     {
-        
+        $query = new Query();
         $instance = new IndexController;
         if ($instance->uri === '') {
-            $query = new Query();
+           
             $todos = $query->getTodo();
             require './app/views/index.view.php';
 
@@ -25,13 +25,19 @@ class IndexController
         } elseif ($instance->uri === '/contact') {
             require './app/views/contact.view.php';
 
-        }elseif ($instance->uri === '/names'){
-
-            $query = new Query();
+        }elseif ($instance->uri === '/addTodo'){
             $query->insert($_POST);
 
-            // die(var_dump($title, $status));
-            // require './app/views/contact.view.php';
-        }
+        }elseif ($instance->uri === '/edit'){
+         $todo = $query->getTodoById(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY));
+        require './app/views/edit.view.php';
+
+        }elseif ($instance->uri === '/update'){
+            $query->update($_POST);
+          echo 'update';
+          
+   
+           }
+
     }
 }

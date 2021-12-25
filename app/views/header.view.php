@@ -10,6 +10,6 @@
 </head>
 <body>
     <main>
-        <header style="text-align:center">
-            <h1>PHP MVC</h1>
+        <header class="text-center">
+            <h1 class="p-3 bg-dark text-light">PHP MVC</h1>
         </header>
