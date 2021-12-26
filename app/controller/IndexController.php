@@ -28,16 +28,14 @@ class IndexController
         }elseif ($instance->uri === '/addTodo'){
             $query->insert($_POST);
 
-        }elseif ($instance->uri === '/edit'){
-         $todo = $query->getTodoById(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY));
-        require './app/views/edit.view.php';
+        }//elseif ($instance->uri === '/edit'){
+        // $todo = $query->getTodoById(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY));
+        //require './app/views/edit.view.php';
 
-        }elseif ($instance->uri === '/update'){
-            $query->update($_POST);
-          echo 'update';
+       // } //elseif ($instance->uri === '/delete'){
+           // $query->delete(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY));
           
-   
-           }
+        //   }
 
     }
 }

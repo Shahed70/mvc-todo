@@ -2,9 +2,9 @@
 
 class DB
 {
-    protected $dsn = 'mysql:host=localhost;dbname=todos';
+    protected $dsn = 'mysql:host=localhost;dbname=mvc-todo';
     protected $username = 'root';
-    protected $password = 'root';
+    protected $password = '';
     public $pdo;
 
     public function __construct()

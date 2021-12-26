@@ -57,4 +57,17 @@ class Query
             echo 'Something went wrong';
         }
     }
+
+    public function delete($id)
+    {
+        $id = explode('=', $id)[1];
+        $statement = $this->conn->prepare('DELETE FROM todolist Where id =:todoid');
+        $result = $statement->execute(['todoid' => $id]);
+
+        if ($result) {
+            header('location:/');
+        } else {
+            echo 'Something went wrong';
+        }
+    }
 }

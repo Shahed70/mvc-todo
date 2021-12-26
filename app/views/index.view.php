@@ -1,6 +1,6 @@
 <?php require 'header.view.php' ?>
 
-<div class="container">
+<div class="container my-5">
         <div class="row">
                 <div class="col-md-6">
                         <table class="table border">
@@ -8,7 +8,7 @@
                                         <tr>
                                                 <th>Todo List</th>
                                                 <th>Status</th>
-                                                
+                                                <th colspan="2" class="text-center">Action</th>
                                         </tr>
                                 </thead>
                                 <tbody>
@@ -17,8 +17,9 @@
                                                         <td><?= $todo->title ?></td>
                                                         <td><?= $todo->completed ? 'Completed' : 'Uncomplete'  ?></td>
                                                         <td>
-                                                          <!-- <a class="btn btn-primary" href="/edit?id=<?=  $todo->id ?>">Edit</a>
-                                                        </td> -->
+                                                          <a class="btn btn-primary" href="/edit?id=<?=  $todo->id ?>">Edit</a>
+                                                            <a class="btn btn-danger" href="/delete?id=<?=  $todo->id ?>">Delete</a>
+                                                        </td>
                                                 </tr>
                                         <?php endforeach ?>
                                 </tbody>
@@ -40,7 +41,7 @@
                                                         <td>Status</td>
                                                         <td>
                                                                 <div class="input-group">
-                                                                        <input name="status" type="number" required class="form-control">
+                                                                        <input name="status" min="0" max="1" type="number" required class="form-control">
                                                                 </div>
                                                         </td>
                                                 </tr>
